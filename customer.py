@@ -2,6 +2,7 @@ import argparse
 import socket
 import sys
 
+#need to create a gui that sends which purchases the customer wants
 
 def main():
     #Get user input

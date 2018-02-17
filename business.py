@@ -3,6 +3,8 @@ import sys
 import socket
 import argparse
 
+#need class that stores a total cost, account number, and 
+
 def main():
 
     parser = argparse.ArgumentParser()
@@ -39,10 +41,9 @@ def main():
         clientsocket, address = serversocket.accept()
         print("Connected with: " + str(address[0]))
 
-        #data = clientsocket.recv()
         msg = 'Hello Customer, Please send any orders to me!'
         clientsocket.send(msg.encode('ascii'))
-        #clientsocket.close()
+
         while True:
 
             data = clientsocket.recv(size)
@@ -53,6 +54,7 @@ def main():
                 break
             elif data:
                 print("process data...." + str(data))
+                #make a process data function that stores data
 
     return;
 
