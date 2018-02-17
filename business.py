@@ -49,7 +49,7 @@ def main():
 
             if data.decode() == "end":
                 clientsocket.close()
-                print("closed connection with customer")
+                print("closed connection with customer: " + str(address[0]))
                 break
             elif data:
                 print("process data...." + str(data))
