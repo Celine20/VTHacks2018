@@ -48,12 +48,11 @@ def main():
 
             data = clientsocket.recv(size)
 
-            if data:
-                #call process data
-                print("process data....")
-            elif data == "end":
+            if data.decode() == "end":
                 clientsocket.close()
                 print("closed connection with customer")
+            elif data:
+                print("process data...." + str(data))
 
     return;
 
