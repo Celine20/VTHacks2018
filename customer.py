@@ -34,7 +34,7 @@ def main():
         s.connect((host, port))
         msg = s.recv(1024)
         #s.close() #take out
-        print(msg.decode('ascii'))
+        print("Message recieved: " + msg.decode('ascii'))
 
 
     except Exception as ex:

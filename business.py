@@ -46,7 +46,7 @@ def main():
         #clientsocket.close()
         while True:
 
-            data = serversocket.recv()
+            data = serversocket.recv(size)
 
             if data:
                 #call process data
