@@ -16,8 +16,8 @@ def main():
         print("EXAMPLE: customer.py -p 555 -s 1024")
         sys.exit()
 
-    port = userInfo.p
-    size = userInfo.s
+    port = int(userInfo.p)
+    size = int(userInfo.s)
 
     serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
@@ -30,7 +30,7 @@ def main():
     print("Socket connected!")
 
     #hardcoding backlog
-    s.listen(10)
+    serversocket.listen(10)
     print("Listening.....")
 
     while True:

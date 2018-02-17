@@ -18,8 +18,8 @@ def main():
         sys.exit()
 
     host = userInfo.n
-    port = userInfo.p
-    size = userInfo.s
+    port = int(userInfo.p)
+    size = int(userInfo.s)
 
     #Add call to functions here
     try:
