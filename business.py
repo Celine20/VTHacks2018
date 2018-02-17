@@ -23,7 +23,7 @@ def main():
     serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     try:
-    serversocket.bind((host, port))
+        serversocket.bind((host, port))
     except socket.error as msg:
         print("Bind failed. Error Message: " + str(msg[0]))
         sys.exit()
