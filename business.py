@@ -50,7 +50,8 @@ def main():
 
             if data:
                 #call process data
-            else if data == "end":
+                print("process data....")
+            elif data == "end":
                 clientsocket.close()
                 print("closed connection with customer")
 
