@@ -33,7 +33,7 @@ def main():
     try:
         s.connect((host, port))
         msg = s.recv(1024)
-
+        s.close() #take out
         print(msg.decode('ascii'))
 
 

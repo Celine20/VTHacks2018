@@ -18,7 +18,8 @@ def main():
 
     port = int(userInfo.p)
     size = int(userInfo.s)
-    host = socket.gethostname()
+    host = '0.0.0.0' #socket.gethostname()
+    print(host)
 
     serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
