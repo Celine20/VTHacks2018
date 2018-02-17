@@ -28,7 +28,19 @@ def main():
         print("Socket creation failed with error: %s" %(err))
         sys.exit()
 
-    s.connect((host, port))
+    #host = socket.gethostname()
+    print(host)
+    print(socket.gethostbyaddr("127.0.0.1"))
+
+    try:
+        s.connect((host, port))
+        msg = s.recv(1024)
+        s.close()
+        #print(msg.decode('ascii'))
+        #s.send(bytedata)
+        #s.recv()
+    except Exception as ex:
+        print("Connection Failed: " + str(ex))
 
     #get/send data etc.
 

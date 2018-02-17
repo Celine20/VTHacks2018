@@ -20,9 +20,10 @@ def main():
     size = int(userInfo.s)
 
     serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
+    #print(socket.gethostname())
+    #print(socket.gethostbyaddr("127.0.0.1"))
     try:
-        serversocket.bind((socket.gethostname(), port))
+        serversocket.bind((socket.gethostname(), port)) #hardcode on pi
     except socket.error as msg:
         print("Bind failed. Error Message: " + str(msg[0]))
         sys.exit()
@@ -35,10 +36,14 @@ def main():
 
     while True:
 
-        (clientsocket, address) = serversocket.accept()
+        clientsocket, address = serversocket.accept()
         print("Connected with: " + str(address[0]))
 
-    serversocket.close()
+        #data = clientsocket.recv()
+        msg = 'blah'
+        clientsocket.send(msg.encode('ascii'))
+        clientsocket.close()
+
 
     return;
 
