@@ -24,7 +24,7 @@ def main():
     #print(socket.gethostbyaddr("127.0.0.1"))
     #host = '0.0.0.0'
     try:
-        serversocket.bind((server.gethostname(), port)) #((socket.gethostname(), port)) #hardcode on pi
+        serversocket.bind((socket.gethostname(), port)) #((socket.gethostname(), port)) #hardcode on pi
     except socket.error as msg:
         print("Bind failed. Error Message: " + str(msg[0]))
         sys.exit()
