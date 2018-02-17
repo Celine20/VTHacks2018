@@ -33,7 +33,7 @@ def main():
     try:
         s.connect((host, port))
         msg = s.recv(1024)
-        s.close()
+
         print(msg.decode('ascii'))
 
         msg = "ACCT:1234:ITEM:COFFEE:PRICE:2.50"
@@ -41,6 +41,8 @@ def main():
 
         msg2 = "end"
         s.send(msg2.encode('ascii'))
+
+        s.close()
         #s.send(bytedata)
         #s.recv()
     except Exception as ex:
