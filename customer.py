@@ -1,7 +1,7 @@
 import argparse
 import socket
 import sys
-import os
+
 
 def main():
     #Get user input
@@ -15,10 +15,11 @@ def main():
         print("Please use the format: ")
         print("customer.py -n [hostname] -p [port] -s [size]")
         print("EXAMPLE: customer.py -n 127.0.0.1 -p 555 -s 1024")
-    else:
-        host = userInfo.n
-        port = userInfo.p
-        size = userInfo.s
+        sys.exit()
+
+    host = userInfo.n
+    port = userInfo.p
+    size = userInfo.s
 
     #Add call to functions here
     try:
@@ -34,3 +35,5 @@ def main():
     s.close()
 
     return;
+
+main()
