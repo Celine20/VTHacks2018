@@ -19,7 +19,6 @@ def main():
     port = int(userInfo.p)
     size = int(userInfo.s)
     host = '0.0.0.0' #socket.gethostname()
-    print(host)
 
     serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
@@ -51,6 +50,7 @@ def main():
             if data.decode() == "end":
                 clientsocket.close()
                 print("closed connection with customer")
+                break
             elif data:
                 print("process data...." + str(data))
 
