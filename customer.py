@@ -36,19 +36,16 @@ def main():
 
         print(msg.decode('ascii'))
 
-        msg = "ACCT:1234:ITEM:COFFEE:PRICE:2.50"
-        s.send(msg.encode('ascii'))
 
-        msg2 = "end"
-        s.send(msg2.encode('ascii'))
-
-        s.close()
-        #s.send(bytedata)
-        #s.recv()
     except Exception as ex:
         print("Connection Failed: " + str(ex))
 
-    #get/send data etc.
+
+    '''msg = "ACCT:1234:ITEM:COFFEE:PRICE:2.50"
+    s.send(msg.encode('ascii'))
+
+    msg2 = "end"
+    s.send(msg2.encode('ascii'))'''
 
     s.close()
 

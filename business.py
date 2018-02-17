@@ -43,8 +43,7 @@ def main():
         msg = 'Hello, Please send any orders to me!'
         clientsocket.send(msg.encode('ascii'))
         clientsocket.close()
-
-        while True:
+        '''while True:
 
             data = serversocket.recv()
 
@@ -53,7 +52,7 @@ def main():
                 print("process data....")
             elif data == "end":
                 clientsocket.close()
-                print("closed connection with customer")
+                print("closed connection with customer")'''
 
     return;
 
