@@ -33,7 +33,7 @@ def main():
     try:
         s.connect((host, port))
         msg = s.recv(1024)
-        s.close() #take out
+        #s.close() #take out
         print(msg.decode('ascii'))
 
 
@@ -41,11 +41,11 @@ def main():
         print("Connection Failed: " + str(ex))
 
 
-    '''msg = "ACCT:1234:ITEM:COFFEE:PRICE:2.50"
+    msg = "ACCT:1234:ITEM:COFFEE:PRICE:2.50"
     s.send(msg.encode('ascii'))
 
     msg2 = "end"
-    s.send(msg2.encode('ascii'))'''
+    s.send(msg2.encode('ascii'))
 
     s.close()
 
