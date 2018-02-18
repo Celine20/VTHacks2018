@@ -73,8 +73,10 @@ def main():
             data = clientsocket.recv(size)
 
             if data.decode() == "end":
+                print("is ending...")
                 bill = currentCustomer.chargeCustomer()
                 encryptedBill = code.encrypt("server", bill)
+                print("sending data now")
                 clientsocket.send(encryptedBill.encode('ascii'))
                 clientsocket.close()
                 print("closed connection with customer: " + str(address[0]))
