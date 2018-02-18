@@ -66,11 +66,17 @@ def main():
         msg = 'Hello Customer, Please send any orders to me!'
         clientsocket.send(msg.encode('ascii'))
 
+        #make instance of customerBill
+        customerName = str(clientsocket)
+        currentCustomer = customerBill(customerBill)
+
         while True:
 
             data = clientsocket.recv(size)
 
             if data.decode() == "end":
+                bill = currentCustomer.chargeCustomer()
+                clientsocket.send(bill.encode('ascii'))
                 clientsocket.close()
                 print("closed connection with customer: " + str(address[0]))
                 break
