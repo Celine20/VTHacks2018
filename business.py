@@ -3,7 +3,29 @@ import sys
 import socket
 import argparse
 
-#need class that stores a total cost, account number, and 
+#need class that stores a total cost, account number, and a list of purchases
+#dictionary that associates name with PRICE
+
+class customerBill:
+    def __init__(self, accountID):
+        self.accountID = accountID
+        self.billItems = []
+        self.billPrices = []
+        self.total = 0
+    def addItem(self, item, price):
+        self.billItems.append(item)
+        self.billPrices.append(price)
+        self.total += price
+    def chargeCustomer(self):
+        response = "_______________________________\n" + "       Bill Summary   \n"
+        response = response + "_______________________________\n"
+        response = response + "Hello Customer " + str(self.accountID) + "!\n"
+        for x in range(0, len(self.billItems)):
+            response = response + "Item: {} || Price: ${}\n".format(self.billItems[x], self.billPrices[x])
+        response = response + "Total Purchases: $%.2f\n" %self.total
+        response = response + "Thank you for shopping with us!"
+        response = response +  "\n_______________________________"
+        return response
 
 def main():
 
@@ -39,7 +61,7 @@ def main():
     while True:
 
         clientsocket, address = serversocket.accept()
-        print("Connected with: " + str(address[0]))
+        print("New customer: " + str(address[0]))
 
         msg = 'Hello Customer, Please send any orders to me!'
         clientsocket.send(msg.encode('ascii'))

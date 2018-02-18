@@ -4,6 +4,15 @@ import sys
 
 #need to create a gui that sends which purchases the customer wants
 
+def sendMessage(s, msg):
+    #do encryption here
+    s.send(msg.encode('ascii'))
+
+def recieveMessage(s, size):
+    msg = s.recv(size)
+    #do encryption/decryption here
+    return msg
+
 def main():
     #Get user input
     parser = argparse.ArgumentParser()
@@ -47,6 +56,7 @@ def main():
 
     msg2 = "end"
     s.send(msg2.encode('ascii'))
+
 
     s.close()
 
