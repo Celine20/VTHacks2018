@@ -18,12 +18,28 @@ def recieveMessage(size): #(s, size)
     #do decryption here
     return msg
 
+def register(E1):
+    #x = E1.get()
+    print("Got account!")
+
+def order(item, price):
+    print("You ordered: " + str(item))
+
 def runGUI():
     #start gui
     top = tkinter.Tk()
-    top.geometry("300x300")
-    frame = LabelFrame(top, text = "Our Menu")
-    frame.pack(fill="both", expand="yes")
+    top.geometry("400x300")
+    #frame = LabelFrame(top, text = "Our Menu")
+    #frame.pack(fill="both", expand="yes")
+    label1 = Label(text="Enter Account Here").grid(row=0, column=0)
+    v = StringVar()
+    E1 = Entry(textvariable=v).grid(row=0, column=1)
+    B1 = Button(text="Register", command=lambda: register(E1)).grid(row=0,column=2)
+    label2 = Label(text="~Our Menu~").grid(row=3, column=1)
+    label3 = Label(text="Coffee").gird(row=4, column=0)
+    label4 = Label(text="$2.50").grid(row=4, column=1)
+    B2 = Button(text="Order", command = lambda: order("Cofeee", 2.50)).grid(row=4, column=2)
+
     top.mainloop()
 
 def main():
