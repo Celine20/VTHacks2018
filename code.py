@@ -11,26 +11,19 @@ def toHex(s):
     test = test[2:len(test)-1]
     return test;
 
-#takes hex string to be converted
-def toAscii(s):
-    test = binascii.unhexlify(s)
-    test = str(test)
-    test = test[2:len(test)-1]
-    return test;
-
 #takes: "client" or "server", message to write
 def encrypt(user, message):
     if(user == "client"):
         readFile = open("clientReadFile.txt","w+") #create a read text file
-        writeFile = open("clientWriteFile.txt","w+") #create a write text file
+        #writeFile = open("clientWriteFile.txt","w+") #create a write text file
         otherGB = serverGB
     elif(user == "server"):
         readFile = open("serverReadFile.txt","w+") #create a read text file
-        writeFile = open("serverWriteFile.txt","w+") #create a write text file
+        #writeFile = open("serverWriteFile.txt","w+") #create a write text file
         otherGB = clientGB
         
     splitMessage = [message[i:i+4] for i in range(0, len(message), 4)]
-    print(splitMessage)
+    #print(splitMessage)
 
     #put loop to dump 4block chunks to a file
     for i in range(0, len(splitMessage), 1):
@@ -39,13 +32,13 @@ def encrypt(user, message):
 
     readFile.close()
 
-    print("number of blocks = %d" %len(splitMessage))
-    print("Sending...this may take a moment.")
+    #print("number of blocks = %d" %len(splitMessage))
+    #print("Sending...this may take a moment.")
 
     readFile = open("%sReadFile.txt" %user,"r") 
     
     if readFile.mode == 'r': #checks to make sure the file is actually open
-         
+        output = "" 
         for i in range(0, len(splitMessage), 1):
             #generating a random a for each block
             res = client.query("RandomInteger[{1, %s}]" %p)
@@ -62,15 +55,17 @@ def encrypt(user, message):
             res = client.query("Mod[%s*%s, %s]" %(key,x,p))
             y = next(res.results).text
             
-            writeFile.write("%s, %s\n" %(GA, y))
-    print("Sent!")
+            #writeFile.write("%s, %s\n" %(GA, y))
+            output += "%s, %s\n" %(GA, y)
+	        
+    #print("Sent: %s" %output)
 
     readFile.close()
-    writeFile.close()
-    return;
+    #writeFile.close()
+    return output;
 
 #takes: "client" or "server"
-def decrypt(user):
+def decrypt(user, message):
     if(user == "client"):
         other = "server"
         userB = clientB
@@ -79,12 +74,15 @@ def decrypt(user):
         other = "client"
         userB = serverB
         
-    print("Collecting information...this may take a moment.")
+    readFile = open("TEST.txt","w+")
+    readFile.write("%s" %message)
+    readFile.close()    
+    #print("Collecting information...this may take a moment.")
 
-    num_lines = sum(1 for line in open("%sWriteFile.txt" %other))
-    print("file has %s lines" %num_lines)
+    num_lines = sum(1 for line in open("TEST.txt","r"))
+    #print("file has %s lines" %num_lines)
     
-    readFile = open("%sWriteFile.txt" %other,"r") 
+    readFile = open("TEST.txt","r") 
     output = ""
     if readFile.mode == 'r': #checks to make sure the file is actually open
         
@@ -113,19 +111,14 @@ def decrypt(user):
     output = str(output)
     output = bytearray.fromhex(output).decode()
     
-    print(output)           
-    print("Done!")
+    #print(output)           
+    #print("Done!")
 
     readFile.close()
     #writeFile.close()
     
     
-    return;
-
-
-
-
-
+    return output;
 
 
 
@@ -152,13 +145,10 @@ phoneBook.write("%d\n%d\n%d\n%d\n" % (p, g, clientGB, serverGB))
 app_id = "8UHTA8-5QGXGEJ4AT"
 client = wolframalpha.Client(app_id)
 
+#message = "test"
 #take in input somehow (TBD)
-message1 = "This is a test1 message....."
-message = "st1 mes"
-message3 = "jhadsjhhdskhsdjajhadhkadsfkasfhsahjfadsjhfhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
-
-encrypt("client", message3)
-decrypt("server")
+#val = encrypt("client", message)
+#decrypt("server", val)
 
 
 
