@@ -2,8 +2,8 @@
 import argparse
 import socket
 import sys
-import tkinter
-from tkinter import *
+#import tkinter
+#from tkinter import *
 
 #need to create a gui that sends which purchases the customer wants
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
