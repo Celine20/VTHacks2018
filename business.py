@@ -34,7 +34,7 @@ class customerBill:
         for x in range(0, len(self.billItems)):
             #response = response + "Item: {} || Price: ${}\n".format(self.billItems[x], self.billPrices[x]) #make two decimals if you get around to it
             #response = response + "Item: {} || Price: ${}\n" %self.billItems[x] %self.billPrices[x]
-            temp = getFullName(self.billItems[x])
+            temp = self.getFullName(self.billItems[x])
             temp2 = self.menuPrices[self.billItems[x]]
             response = response + "Item {} || Price: ${}\n".format(temp, temp2)
         response = response + "Total Purchases: $%.2f\n" %self.total
