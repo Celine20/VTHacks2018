@@ -10,7 +10,7 @@ def sendMessage(s, msg):
 
 def recieveMessage(s, size):
     msg = s.recv(size)
-    #do encryption/decryption here
+    #do decryption here
     return msg
 
 def main():
@@ -43,7 +43,7 @@ def main():
     try:
         s.connect((host, port))
         #msg = s.recv(1024)
-        recieveMessage(s, size)
+        msg = recieveMessage(s, size)
         #s.close() #take out
         print("Message recieved: " + msg.decode('ascii'))
 
