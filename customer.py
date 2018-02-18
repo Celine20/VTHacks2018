@@ -50,7 +50,7 @@ def main():
     try:
         s.connect((host, port))
         #msg = s.recv(1024)
-        msg = recieveMessage(s, size)
+        msg = recieveMessage(size)
         #s.close() #take out
         print("Message recieved: " + msg.decode('ascii'))
 
