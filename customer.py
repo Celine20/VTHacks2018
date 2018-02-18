@@ -47,6 +47,10 @@ def main():
     port = int(userInfo.p)
     size = int(userInfo.s)
 
+    print("getting ready to run gui")
+    runGUI()
+    print("exited gui")
+    
     #made global
     '''try:
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -72,9 +76,9 @@ def main():
     #AFTER SENDING END....ALWAYS WAIT TO RECIEVE ONE LAST Message
     msg = recieveMessage(size)
     print("Message recieved: \n" + msg.decode('ascii'))'''
-    print("getting ready to run gui")
-    runGUI()
-    print("exited gui")
+    #print("getting ready to run gui")
+    #runGUI()
+    #print("exited gui")
     s.close()
 
     return;
