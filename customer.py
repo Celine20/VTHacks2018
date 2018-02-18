@@ -6,7 +6,6 @@ import os
 import tkinter
 from tkinter import *
 
-#need to create a gui that sends which purchases the customer wants
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 def sendMessage(msg): #(s, msg)
@@ -36,8 +35,6 @@ def runGUI(size):
     #start gui
     top = tkinter.Tk()
     top.geometry("400x300")
-    #frame = LabelFrame(top, text = "Our Menu")
-    #frame.pack(fill="both", expand="yes")
     label1 = Label(text="Enter Account Here").grid(row=0, column=0)
     v = StringVar()
     E1 = Entry(textvariable=v).grid(row=0, column=1)
@@ -79,7 +76,7 @@ def main():
     port = int(userInfo.p)
     size = int(userInfo.s)
 
-    #made global
+    #made global ... should have done a class
     '''try:
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     except socket.error as err:
@@ -92,17 +89,6 @@ def main():
         print("Message recieved: " + msg.decode('ascii'))
     except Exception as ex:
         print("Connection Failed: " + str(ex))
-
-    '''msg = "ACCT:1234:ITEM:COFFEE:PRICE:2.50"
-    #s.send(msg.encode('ascii'))
-    sendMessage(msg)
-
-    msg2 = "end"
-    #s.send(msg2.encode('ascii'))
-    sendMessage(msg2)
-    #AFTER SENDING END....ALWAYS WAIT TO RECIEVE ONE LAST Message
-    msg = recieveMessage(size)
-    print("Message recieved: \n" + msg.decode('ascii'))'''
 
     runGUI(size)
 
