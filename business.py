@@ -99,7 +99,7 @@ def main():
                 decodedData = data.decode()
                 decryptedData = code.decrypt("server", decodedData)
                 temp = decryptedData
-                temp2 = self.menuPrices[decryptedData]
+                temp2 = currentCustomer.getFullName[decryptedData]
                 response =  "Item: %s || Price: $%.2f\n" %(temp, temp2)
                 currentCustomer.addItem(decryptedData)
                 #splitData = decryptedData.split(":")
