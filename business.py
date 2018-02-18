@@ -36,7 +36,8 @@ class customerBill:
             #response = response + "Item: {} || Price: ${}\n" %self.billItems[x] %self.billPrices[x]
             temp = self.getFullName(self.billItems[x])
             temp2 = self.menuPrices[self.billItems[x]]
-            response = response + "Item {} || Price: ${}\n".format(temp, temp2)
+            #response = response + "Item: {} || Price: ${}\n".format(temp, temp2)
+            response = response + "Item: %s || Price: $%.2f\n" %(temp, temp2)
         response = response + "Total Purchases: $%.2f\n" %self.total
         response = response + "Thank you for shopping with us!"
         response = response +  "\n_______________________________"
