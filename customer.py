@@ -20,10 +20,12 @@ def recieveMessage(size): #(s, size)
 
 def register(E1):
     #x = E1.get()
-    print("Got account!")
+    print("Got Account!")
 
 def order(item, price):
     print("You ordered: " + str(item))
+    msg = str(item) + ":" + str(price)
+    s.send(msg.encode('ascii'))
 
 def runGUI():
     #start gui
@@ -39,7 +41,6 @@ def runGUI():
     label3 = Label(text="Coffee").grid(row=4, column=0)
     label4 = Label(text="$2.50").grid(row=4, column=1)
     B2 = Button(text="Order", command = lambda: order("Cofeee", 2.50)).grid(row=4, column=2)
-
     top.mainloop()
 
 def main():

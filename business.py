@@ -20,7 +20,7 @@ class customerBill:
     def chargeCustomer(self):
         response = "_______________________________\n" + "       Bill Summary   \n"
         response = response + "_______________________________\n"
-        response = response + "Hello Customer " + str(self.accountID) + "!\n"
+        response = response + "Hello Customer!" #response = response + "Hello Customer " + str(self.accountID) + "!\n"
         for x in range(0, len(self.billItems)):
             response = response + "Item: {} || Price: ${}\n".format(self.billItems[x], self.billPrices[x])
         response = response + "Total Purchases: $%.2f\n" %self.total
