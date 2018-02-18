@@ -21,16 +21,16 @@ def recieveMessage(size): #(s, size)
 def sendEndMessage(msg, size):
     s.send(msg.encode('ascii'))
     msg2 = recieveMessage(size)
-    decryptedMsg2 = code.decrypt("client", msg2)
-    print("Message recieved: \n" + decryptedMsg2.decode('ascii'))
+    print("Message recieved: \n" + msg2.decode('ascii'))
 
 def register(account):
     #x = E1.get()
     print("We recieved your account information")
 
-def order(item, price):
+def order(item, letter):
     print("You ordered: " + str(item))
-    msg = str(item) + ":" + str(price)
+    #msg = str(item) + ":" + str(price)
+    msg = letter
     encryptMsg = code.encrypt("client", msg)
     s.send(encryptMsg.encode('ascii'))
 
@@ -46,19 +46,19 @@ def runGUI(size):
     label2 = Label(text="~Our Menu~").grid(row=3, column=1)
     label3 = Label(text="Coffee").grid(row=4, column=0)
     label4 = Label(text="$2.50").grid(row=4, column=1)
-    B2 = Button(text="Order", command = lambda: order("Cofeee", 2.50)).grid(row=4, column=2)
+    B2 = Button(text="Order", command = lambda: order("Coffee", 'c')).grid(row=4, column=2)
     label5 = Label(text="Latte").grid(row=5, column=0)
     label6 = Label(text="$3.50").grid(row=5, column=1)
-    B3 = Button(text="Order", command = lambda: order("Latte", 3.50)).grid(row=5, column=2)
+    B3 = Button(text="Order", command = lambda: order("Latte", 'l')).grid(row=5, column=2)
     label7 = Label(text="Mocha").grid(row=6, column=0)
     label8 = Label(text="$3.00").grid(row=6, column=1)
-    B4 = Button(text="Order", command = lambda: order("Mocha", 3.00)).grid(row=6, column=2)
+    B4 = Button(text="Order", command = lambda: order("Mocha", 'm')).grid(row=6, column=2)
     label9 = Label(text="Muffin").grid(row=7, column=0)
     label10 = Label(text="$1.50").grid(row=7, column=1)
-    B5 = Button(text="Order", command = lambda: order("Muffin", 1.50)).grid(row=7, column=2)
+    B5 = Button(text="Order", command = lambda: order("Muffin", 'u')).grid(row=7, column=2)
     label11 = Label(text="Donut").grid(row=8, column=0)
     label12 = Label(text="$1.00").grid(row=8, column=1)
-    B6 = Button(text="Order", command = lambda: order("Donut", 1.00)).grid(row=8, column=2)
+    B6 = Button(text="Order", command = lambda: order("Donut", 'd')).grid(row=8, column=2)
     B7 = Button(text="Get Check", command = lambda: sendEndMessage("end", size)).grid(row=9,column=1)
     top.mainloop()
 
