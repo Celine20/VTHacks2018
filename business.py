@@ -22,8 +22,8 @@ class customerBill:
         response = response + "_______________________________\n"
         response = response + "Hello Customer!\n" #response = response + "Hello Customer " + str(self.accountID) + "!\n"
         for x in range(0, len(self.billItems)):
-            #response = response + "Item: {} || Price: ${}\n".format(self.billItems[x], self.billPrices[x])
-            response = response + "Item: {} || Price: ${}\n" %self.billItems[x] %self.billPrices[x]
+            response = response + "Item: {0:.3} || Price: ${0:.3}\n".format(self.billItems[x], self.billPrices[x])
+            #response = response + "Item: {} || Price: ${}\n" %self.billItems[x] %self.billPrices[x]
         response = response + "Total Purchases: $%.2f\n" %self.total
         response = response + "Thank you for shopping with us!"
         response = response +  "\n_______________________________"
