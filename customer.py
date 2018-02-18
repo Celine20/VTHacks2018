@@ -59,7 +59,7 @@ def main():
         print("Connection Failed: " + str(ex))
 
 
-    msg = "ACCT:1234:ITEM:COFFEE:PRICE:2.50"
+    '''msg = "ACCT:1234:ITEM:COFFEE:PRICE:2.50"
     #s.send(msg.encode('ascii'))
     sendMessage(msg)
 
@@ -68,7 +68,15 @@ def main():
     sendMessage(msg2)
     #AFTER SENDING END....ALWAYS WAIT TO RECIEVE ONE LAST Message
     msg = recieveMessage(size)
-    print("Message recieved: \n" + msg.decode('ascii'))
+    print("Message recieved: \n" + msg.decode('ascii'))'''
+
+    #start gui
+    menu = tkinter.Tk()
+    menu.geometry("300x300")
+    frame = LabelFrame(top, text = "Our Menu")
+    label.pack(fill="both", expand="yes")
+
+    menu.mainloop()
 
     s.close()
 
