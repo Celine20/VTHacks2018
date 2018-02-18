@@ -52,11 +52,12 @@ def main():
 
 
     msg = "ACCT:1234:ITEM:COFFEE:PRICE:2.50"
-    s.send(msg.encode('ascii'))
+    #s.send(msg.encode('ascii'))
+    sendMessage(s, msg)
 
     msg2 = "end"
-    s.send(msg2.encode('ascii'))
-
+    #s.send(msg2.encode('ascii'))
+    sendMessage(s, msg2)
 
     s.close()
 
