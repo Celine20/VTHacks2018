@@ -18,15 +18,15 @@ def recieveMessage(size): #(s, size)
     #do decryption here
     return msg
 
-def buttonPushed():
-    print("Ordered Coffee")
-
 def runGUI():
     #start gui
+    print("in function...")
     top = tkinter.Tk()
+    print("made gui window")
     top.geometry("300x300")
     #frame = LabelFrame(top, text = "Our Menu")
     #label.pack(fill="both", expand="yes")
+    print("starting main loop")
     top.mainloop()
 
 def main():
@@ -72,9 +72,9 @@ def main():
     #AFTER SENDING END....ALWAYS WAIT TO RECIEVE ONE LAST Message
     msg = recieveMessage(size)
     print("Message recieved: \n" + msg.decode('ascii'))'''
-
+    print("getting ready to run gui")
     runGUI()
-
+    print("exited gui")
     s.close()
 
     return;
