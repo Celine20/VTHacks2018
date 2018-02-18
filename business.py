@@ -38,7 +38,7 @@ def main():
     if userInfo.p == None or userInfo.s == None:
         print("Please use the format: ")
         print("customer.py -p [port] -s [size]")
-        print("EXAMPLE: customer.py -p 555 -s 1024")
+        print("EXAMPLE: sudo python3 customer.py -p 555 -s 1024")
         sys.exit()
 
     port = int(userInfo.p)

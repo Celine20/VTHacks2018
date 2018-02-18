@@ -40,17 +40,13 @@ def main():
     if userInfo.n == None or userInfo.p == None or userInfo.s == None:
         print("Please use the format: ")
         print("customer.py -n [hostname] -p [port] -s [size]")
-        print("EXAMPLE: customer.py -n 127.0.0.1 -p 555 -s 1024")
+        print("EXAMPLE: [do not use sudo] python3 customer.py -n 127.0.0.1 -p 555 -s 1024")
         sys.exit()
 
     host = userInfo.n
     port = int(userInfo.p)
     size = int(userInfo.s)
 
-    print("getting ready to run gui")
-    runGUI()
-    print("exited gui")
-    
     #made global
     '''try:
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -66,7 +62,7 @@ def main():
         print("Connection Failed: " + str(ex))
 
 
-    '''msg = "ACCT:1234:ITEM:COFFEE:PRICE:2.50"
+    msg = "ACCT:1234:ITEM:COFFEE:PRICE:2.50"
     #s.send(msg.encode('ascii'))
     sendMessage(msg)
 
@@ -75,9 +71,9 @@ def main():
     sendMessage(msg2)
     #AFTER SENDING END....ALWAYS WAIT TO RECIEVE ONE LAST Message
     msg = recieveMessage(size)
-    print("Message recieved: \n" + msg.decode('ascii'))'''
+    print("Message recieved: \n" + msg.decode('ascii'))
     #print("getting ready to run gui")
-    #runGUI()
+    runGUI()
     #print("exited gui")
     s.close()
 
