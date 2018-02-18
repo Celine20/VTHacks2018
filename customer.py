@@ -22,9 +22,9 @@ def sendEndMessage(msg, size):
     msg2 = recieveMessage(size)
     print("Message recieved: \n" + msg2.decode('ascii'))
 
-def register(E1):
+def register(account):
     #x = E1.get()
-    print("Got Account!")
+    print(account)
 
 def order(item, price):
     print("You ordered: " + str(item))
@@ -38,7 +38,7 @@ def runGUI(size):
     label1 = Label(text="Enter Account Here").grid(row=0, column=0)
     v = StringVar()
     E1 = Entry(textvariable=v).grid(row=0, column=1)
-    B1 = Button(text="Register", command=lambda: register(E1)).grid(row=0,column=2)
+    B1 = Button(text="Register", command=lambda: register(E1.get())).grid(row=0,column=2)
     label2 = Label(text="~Our Menu~").grid(row=3, column=1)
     label3 = Label(text="Coffee").grid(row=4, column=0)
     label4 = Label(text="$2.50").grid(row=4, column=1)
