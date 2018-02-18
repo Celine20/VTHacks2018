@@ -52,7 +52,13 @@ def runGUI():
     label7 = Label(text="Mocha").grid(row=6, column=0)
     label8 = Label(text="$3.00").grid(row=6, column=1)
     B4 = Button(text="Order", command = lambda: order("Mocha", 3.00)).grid(row=6, column=2)
-    B5 = Button(text="Get Check", command = lambda: sendEndMessage("end")).grid(row=7,column=1)
+    label9 = Label(text="Muffin").grid(row=7, column=0)
+    label10 = Label(text="$1.50").grid(row=7, column=1)
+    B5 = Button(text="Order", command = lambda: order("Muffin", 1.50)).grid(row=7, column=2)
+    label11 = Label(text="Donut").grid(row=8, column=0)
+    label12 = Label(text="$1.00").grid(row=8, column=1)
+    B6 = Button(text="Order", command = lambda: order("Donut", 1.00)).grid(row=8, column=2)
+    B7 = Button(text="Get Check", command = lambda: sendEndMessage("end")).grid(row=9,column=1)
     top.mainloop()
 
 def main():

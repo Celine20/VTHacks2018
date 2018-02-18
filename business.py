@@ -67,8 +67,8 @@ def main():
         clientsocket.send(msg.encode('ascii'))
 
         #make instance of customerBill
-        customerName = str(address) #this is giving a weird name...
-        currentCustomer = customerBill(customerBill)
+        customerName = str(address[0])
+        currentCustomer = customerBill(customerName)
 
         while True:
 
@@ -81,7 +81,7 @@ def main():
                 print("closed connection with customer: " + str(address[0]))
                 break
             elif data:
-                print("process data...." + str(data))
+                #print("process data...." + str(data))
                 decodedData = data.decode()
                 splitData = decodedData.split(":")
                 currentCustomer.addItem(splitData[0], float(splitData[1]))
