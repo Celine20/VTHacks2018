@@ -30,7 +30,7 @@ def register(account):
 def order(item, price):
     print("You ordered: " + str(item))
     msg = str(item) + ":" + str(price)
-    encryptMsg = code.encrypt("user", msg)
+    encryptMsg = code.encrypt("client", msg)
     s.send(encryptMsg.encode('ascii'))
 
 def runGUI(size):
