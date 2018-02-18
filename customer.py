@@ -61,7 +61,7 @@ def main():
     sendMessage(s, msg2)
     #AFTER SENDING END....ALWAYS WAIT TO RECIEVE ONE LAST Message
     msg = recieveMessage(s, size)
-    print("Message recieved: " + msg.decode('ascii'))
+    print("Message recieved: \n" + msg.decode('ascii'))
 
     s.close()
 

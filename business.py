@@ -67,7 +67,7 @@ def main():
         clientsocket.send(msg.encode('ascii'))
 
         #make instance of customerBill
-        customerName = str(clientsocket)
+        customerName = str(address)
         currentCustomer = customerBill(customerBill)
 
         while True:
