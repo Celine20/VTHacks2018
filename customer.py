@@ -20,7 +20,7 @@ def recieveMessage(size): #(s, size)
 
 def sendEndMessage(msg):
     s.send(msg.encode('ascii'))
-    msg = recieveMessage(size)
+    msg = recieveMessage(1024) #need to not hard code later
     print("Message recieved: \n" + msg.decode('ascii'))
 
 def register(E1):
