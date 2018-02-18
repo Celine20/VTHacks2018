@@ -36,7 +36,7 @@ def runGUI():
     E1 = Entry(textvariable=v).grid(row=0, column=1)
     B1 = Button(text="Register", command=lambda: register(E1)).grid(row=0,column=2)
     label2 = Label(text="~Our Menu~").grid(row=3, column=1)
-    label3 = Label(text="Coffee").gird(row=4, column=0)
+    label3 = Label(text="Coffee").grid(row=4, column=0)
     label4 = Label(text="$2.50").grid(row=4, column=1)
     B2 = Button(text="Order", command = lambda: order("Cofeee", 2.50)).grid(row=4, column=2)
 
