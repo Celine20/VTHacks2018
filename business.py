@@ -100,7 +100,8 @@ def main():
                 decryptedData = code.decrypt("server", decodedData)
                 temp = decryptedData
                 temp2 = currentCustomer.getFullName(decryptedData)
-                response =  "Item: %s || Price: $%.2f\n" %(temp, temp2)
+                response =  "Item Ordered: %s\n" %temp2
+                print(response)
                 currentCustomer.addItem(decryptedData)
                 #splitData = decryptedData.split(":")
                 #currentCustomer.addItem(splitData[0], float(splitData[1]))
