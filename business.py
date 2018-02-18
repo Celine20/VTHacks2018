@@ -98,6 +98,9 @@ def main():
                 #print("process data...." + str(data))
                 decodedData = data.decode()
                 decryptedData = code.decrypt("server", decodedData)
+                temp = decryptedData
+                temp2 = menuPrices[decryptedData]
+                response =  "Item: %s || Price: $%.2f\n" %(temp, temp2)
                 currentCustomer.addItem(decryptedData)
                 #splitData = decryptedData.split(":")
                 #currentCustomer.addItem(splitData[0], float(splitData[1]))
