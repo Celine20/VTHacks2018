@@ -18,6 +18,11 @@ def recieveMessage(size): #(s, size)
     #do decryption here
     return msg
 
+def sendEndMessage(msg):
+    s.send(msg.encode('ascii'))
+    msg = recieveMessage(size)
+    print("Message recieved: \n" + msg.decode('ascii'))
+
 def register(E1):
     #x = E1.get()
     print("Got Account!")
@@ -47,7 +52,7 @@ def runGUI():
     label7 = Label(text="Mocha").grid(row=6, column=0)
     label8 = Label(text="$3.00").grid(row=6, column=1)
     B4 = Button(text="Order", command = lambda: order("Mocha", 3.00)).grid(row=6, column=2)
-    B5 = Button(text="Get Check", command = lambda: sendMessage("end")).grid(row=7,column=1)
+    B5 = Button(text="Get Check", command = lambda: sendEndMessage("end")).grid(row=7,column=1)
     top.mainloop()
 
 def main():

@@ -83,6 +83,9 @@ def main():
                 break
             elif data:
                 print("process data...." + str(data))
+                decodedData = data.decode()
+                splitData = decodedData.split(":")
+                currentCustomer.addItem(splitData[0], int(splitData[1]))
                 #make a process data function that stores data
 
     return;
