@@ -1,8 +1,11 @@
 import argparse
 import socket
 import sys
+import tkinter
+from tkinter import *
 
 #need to create a gui that sends which purchases the customer wants
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 def sendMessage(s, msg):
     #do encryption here
@@ -12,6 +15,9 @@ def recieveMessage(s, size):
     msg = s.recv(size)
     #do decryption here
     return msg
+
+def buttonPushed():
+    print("Ordered Coffee")
 
 def main():
     #Get user input
@@ -32,11 +38,11 @@ def main():
     size = int(userInfo.s)
 
     #Add call to functions here
-    try:
+    '''try:
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     except socket.error as err:
         print("Socket creation failed with error: %s" %(err))
-        sys.exit()
+        sys.exit()'''
 
     print("socket created!")
 
