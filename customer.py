@@ -18,10 +18,10 @@ def recieveMessage(size): #(s, size)
     #do decryption here
     return msg
 
-def sendEndMessage(msg):
+def sendEndMessage(msg, size):
     s.send(msg.encode('ascii'))
-    msg = recieveMessage(1024) #need to not hard code later
-    print("Message recieved: \n" + msg.decode('ascii'))
+    msg2 = recieveMessage(size)
+    print("Message recieved: \n" + msg2.decode('ascii'))
 
 def register(E1):
     #x = E1.get()
@@ -32,7 +32,7 @@ def order(item, price):
     msg = str(item) + ":" + str(price)
     s.send(msg.encode('ascii'))
 
-def runGUI():
+def runGUI(size):
     #start gui
     top = tkinter.Tk()
     top.geometry("400x300")
@@ -58,7 +58,7 @@ def runGUI():
     label11 = Label(text="Donut").grid(row=8, column=0)
     label12 = Label(text="$1.00").grid(row=8, column=1)
     B6 = Button(text="Order", command = lambda: order("Donut", 1.00)).grid(row=8, column=2)
-    B7 = Button(text="Get Check", command = lambda: sendEndMessage("end")).grid(row=9,column=1)
+    B7 = Button(text="Get Check", command = lambda: sendEndMessage("end", size)).grid(row=9,column=1)
     top.mainloop()
 
 def main():
@@ -104,7 +104,7 @@ def main():
     msg = recieveMessage(size)
     print("Message recieved: \n" + msg.decode('ascii'))'''
 
-    runGUI()
+    runGUI(size)
 
     s.close()
 
