@@ -20,13 +20,10 @@ def recieveMessage(size): #(s, size)
 
 def runGUI():
     #start gui
-    print("in function...")
     top = tkinter.Tk()
-    print("made gui window")
     top.geometry("300x300")
-    #frame = LabelFrame(top, text = "Our Menu")
-    #label.pack(fill="both", expand="yes")
-    print("starting main loop")
+    frame = LabelFrame(top, text = "Our Menu")
+    label.pack(fill="both", expand="yes")
     top.mainloop()
 
 def main():
@@ -61,8 +58,7 @@ def main():
     except Exception as ex:
         print("Connection Failed: " + str(ex))
 
-
-    msg = "ACCT:1234:ITEM:COFFEE:PRICE:2.50"
+    '''msg = "ACCT:1234:ITEM:COFFEE:PRICE:2.50"
     #s.send(msg.encode('ascii'))
     sendMessage(msg)
 
@@ -71,10 +67,10 @@ def main():
     sendMessage(msg2)
     #AFTER SENDING END....ALWAYS WAIT TO RECIEVE ONE LAST Message
     msg = recieveMessage(size)
-    print("Message recieved: \n" + msg.decode('ascii'))
-    #print("getting ready to run gui")
+    print("Message recieved: \n" + msg.decode('ascii'))'''
+
     runGUI()
-    #print("exited gui")
+
     s.close()
 
     return;
