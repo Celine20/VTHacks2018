@@ -24,7 +24,7 @@ def sendEndMessage(msg, size):
 
 def register(account):
     #x = E1.get()
-    print(account)
+    print("We recieved your account information")
 
 def order(item, price):
     print("You ordered: " + str(item))
