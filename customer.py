@@ -2,6 +2,7 @@
 import argparse
 import socket
 import sys
+import os
 import tkinter
 from tkinter import *
 
@@ -19,6 +20,14 @@ def recieveMessage(size): #(s, size)
 
 def buttonPushed():
     print("Ordered Coffee")
+
+def runGUI():
+    #start gui
+    top = tkinter.Tk()
+    top.geometry("300x300")
+    #frame = LabelFrame(top, text = "Our Menu")
+    #label.pack(fill="both", expand="yes")
+    top.mainloop()
 
 def main():
     #Get user input
@@ -38,23 +47,17 @@ def main():
     port = int(userInfo.p)
     size = int(userInfo.s)
 
-    #Add call to functions here
+    #made global
     '''try:
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     except socket.error as err:
         print("Socket creation failed with error: %s" %(err))
         sys.exit()'''
 
-    print("socket created!")
-
     try:
         s.connect((host, port))
-        #msg = s.recv(1024)
         msg = recieveMessage(size)
-        #s.close() #take out
         print("Message recieved: " + msg.decode('ascii'))
-
-
     except Exception as ex:
         print("Connection Failed: " + str(ex))
 
@@ -70,13 +73,7 @@ def main():
     msg = recieveMessage(size)
     print("Message recieved: \n" + msg.decode('ascii'))'''
 
-    #start gui
-    menu = tkinter.Tk()
-    menu.geometry("300x300")
-    frame = LabelFrame(top, text = "Our Menu")
-    label.pack(fill="both", expand="yes")
-
-    menu.mainloop()
+    runGUI()
 
     s.close()
 
