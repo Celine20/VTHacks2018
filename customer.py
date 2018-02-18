@@ -21,7 +21,8 @@ def recieveMessage(size): #(s, size)
 def sendEndMessage(msg, size):
     s.send(msg.encode('ascii'))
     msg2 = recieveMessage(size)
-    print("Message recieved: \n" + msg2.decode('ascii'))
+    decryptedMsg2 = code.decrypt("client", msg2)
+    print("Message recieved: \n" + decryptedMsg2.decode('ascii'))
 
 def register(account):
     #x = E1.get()
