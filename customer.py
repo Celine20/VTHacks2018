@@ -41,6 +41,13 @@ def runGUI():
     label3 = Label(text="Coffee").grid(row=4, column=0)
     label4 = Label(text="$2.50").grid(row=4, column=1)
     B2 = Button(text="Order", command = lambda: order("Cofeee", 2.50)).grid(row=4, column=2)
+    label5 = Label(text="Latte").grid(row=5, column=0)
+    label6 = Label(text="$3.50").grid(row=5, column=1)
+    B3 = Button(text="Order", command = lambda: order("Latte", 3.50)).grid(row=5, column=2)
+    label7 = Label(text="Mocha").grid(row=6, column=0)
+    label8 = Label(text="$3.00").grid(row=6, column=1)
+    B4 = Button(text="Order", command = lambda: order("Mocha", 3.00)).grid(row=6, column=2)
+    B5 = Button(text="Get Check", command = lambda: sendMessage("end")).grid(row=7,column=1)
     top.mainloop()
 
 def main():
