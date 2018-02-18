@@ -8,11 +8,11 @@ import sys
 #need to create a gui that sends which purchases the customer wants
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-def sendMessage(s, msg):
+def sendMessage(msg): #(s, msg)
     #do encryption here
     s.send(msg.encode('ascii'))
 
-def recieveMessage(s, size):
+def recieveMessage(size): #(s, size)
     msg = s.recv(size)
     #do decryption here
     return msg
@@ -61,13 +61,13 @@ def main():
 
     msg = "ACCT:1234:ITEM:COFFEE:PRICE:2.50"
     #s.send(msg.encode('ascii'))
-    sendMessage(s, msg)
+    sendMessage(msg)
 
     msg2 = "end"
     #s.send(msg2.encode('ascii'))
-    sendMessage(s, msg2)
+    sendMessage(msg2)
     #AFTER SENDING END....ALWAYS WAIT TO RECIEVE ONE LAST Message
-    msg = recieveMessage(s, size)
+    msg = recieveMessage(size)
     print("Message recieved: \n" + msg.decode('ascii'))
 
     s.close()
