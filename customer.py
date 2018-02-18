@@ -23,7 +23,7 @@ def runGUI():
     top = tkinter.Tk()
     top.geometry("300x300")
     frame = LabelFrame(top, text = "Our Menu")
-    label.pack(fill="both", expand="yes")
+    frame.pack(fill="both", expand="yes")
     top.mainloop()
 
 def main():
