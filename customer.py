@@ -5,6 +5,7 @@ import sys
 import os
 import tkinter
 from tkinter import *
+import code
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
@@ -29,7 +30,8 @@ def register(account):
 def order(item, price):
     print("You ordered: " + str(item))
     msg = str(item) + ":" + str(price)
-    s.send(msg.encode('ascii'))
+    encryptMsg = code.encrypt("user", msg)
+    s.send(encryptMsg.encode('ascii'))
 
 def runGUI(size):
     #start gui

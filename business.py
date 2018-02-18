@@ -3,6 +3,7 @@ import os
 import sys
 import socket
 import argparse
+import code
 
 class customerBill:
     def __init__(self, accountID):
@@ -80,7 +81,8 @@ def main():
             elif data:
                 #print("process data...." + str(data))
                 decodedData = data.decode()
-                splitData = decodedData.split(":")
+                decryptedData = code.decrypt("server", decodedData)
+                splitData = decryptedData.split(":")
                 currentCustomer.addItem(splitData[0], float(splitData[1]))
                 #make a process data function that stores data
 
